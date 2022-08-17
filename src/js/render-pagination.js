@@ -1,15 +1,14 @@
 export { renderPagination };
 
 const paginationList = document.querySelector('.pagination__list');
-const myPagination = document.querySelector('.pagination');
+const btnLeft = document.querySelector('.left')
+const numberOfPicture = document.querySelector('.numberOfPicture')
 
 function renderPagination(totalHits, page, perPage) {
-    let countPage = Math.round(totalHits / perPage);
-
+    let countPage = Math.round(totalHits / numberOfPicture.value);
     let html = '';
-
     for (let i = 1; i <= countPage; i += 1) {
-      let lastClass = ''
+      
       if(i === countPage) {
         lastClass = 'last'
       }
@@ -19,6 +18,13 @@ function renderPagination(totalHits, page, perPage) {
         </li>`;
         
   }
-
+  disabledPage(page, countPage)
   paginationList.innerHTML = html;
 }
+
+function disabledPage(page, countPage) {
+  btnLeft.disabled = true
+  if(page > 1) {
+    btnLeft.disabled = false
+  } 
+}  

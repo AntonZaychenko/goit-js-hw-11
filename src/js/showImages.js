@@ -1,47 +1,51 @@
-import Notiflix, { Notify } from 'notiflix';
+export { showImages };
+
+
 import { fetchImages } from './fetch-images';
 import { renderGallery } from './render-gallery';
 import { renderPagination } from './render-pagination';
 import { clearGallery } from '..';
+import { notifications } from './notifications';
 
-export { showImages };
 const inputEl = document.querySelector('input');
 const loadMore = document.querySelector('.btn-load-more')
-
+const btnRight = document.querySelector('.right')
+const numberOfPicture = document.querySelector('.numberOfPicture')
 
 let query = inputEl.value.trim();
 let page = 1;
-let perPage = 40;
+let perPage = numberOfPicture.value;
 
-const myLink = document.querySelector('.back');
-const myIcon = document.querySelector('.back__icon');
+const myPagination = document.querySelector('.pagination')
 
 function showImages(page) {
-  
   let query = inputEl.value.trim();
- 
-  fetchImages(query, page, perPage).then(({ data }) => {
+  return fetchImages(query, page, perPage).then(({ data }) => {
+   
     if(data.totalHits === 0) {
-      Notify.failure('Sorry, there are no images matching your search query. Please try again.')
+      // Notify.failure('Sorry, there are no images matching your search query. Please try again.')
     } else {
       renderGallery(data.hits);
       simplelightbox = new SimpleLightbox('.gallery a').refresh();
-      Notify.success(`Hooray! We found ${data.totalHits} images.`)
       loadMore.classList.remove('is-hidden');
+      myPagination.classList.remove('pghd')
+      btnRight.disabled = false
     } 
      if(page > data.totalHits / perPage) {
       loadMore.classList.add('is-hidden');
-      Notify.info(
-        'Sorry, there are no images matching your search query. Please try again.'
-      )
+      btnRight.disabled = true
+    
     } else if(page > 1) {
       onPageScrolling();
     }
-    
     renderPagination(data.totalHits, page, perPage);
-   
-  });
+    return data
+  }).then((data) => {
+    notifications(data)
+  })
+  
 }
+
 function onPageScrolling() {
   const { height: cardHeight } = document
     .querySelector('.gallery')
@@ -53,13 +57,9 @@ function onPageScrolling() {
   });
 }
 
-const openBtn = document.querySelector('.openBtn')
-const myFilter = document.querySelector('.filter')
-openBtn.addEventListener('click', onOpenFilter)
 
-function onOpenFilter(e) {
-  e.preventDefault()
-  
-myFilter.classList.toggle('filterHidden')
-Notify.info('Please select a category!')
-}
+
+
+
+
+

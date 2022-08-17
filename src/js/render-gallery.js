@@ -5,7 +5,6 @@ function renderGallery(images) {
   const markup = images
     .map(image => {
       const { id, largeImageURL, webformatURL, tags, likes, views, comments, downloads } = image;
-      
       return `
         <a class="gallery__link" href="${largeImageURL}">
           <div class="gallery-item" id="${id}">
@@ -18,10 +17,8 @@ function renderGallery(images) {
             </div>
           </div>
         </a>
-      `
-      
+      ` 
     })
-    .join('');
-    
+    .join('');  
     myGallery.insertAdjacentHTML('beforeend', markup);
 }

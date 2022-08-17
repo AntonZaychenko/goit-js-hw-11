@@ -36,7 +36,9 @@
  
 }
 .search-form input {
-  width: 20%;
+  position: relative;
+  width: 268px;
+  margin-left: 45px;
   border-radius: 4px 0 0 4px;
   border: none;
   outline: none;
@@ -44,12 +46,12 @@
   padding: 8px 10px;
  
 }
-.search-form button {
+.form__btn {
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
-  height: 34px;
+  height: 34.5px;
   width: 34px;
   background-color: rgb(200, 200, 200);
 
@@ -59,7 +61,9 @@
   
   height: 17px;
 }
-
+.form {
+  display: flex;
+}
 .gallery {
   margin-bottom: 30px;
   margin-left: 15px;
@@ -138,27 +142,7 @@
 a {
   text-decoration: none;
 }
-.back {
-  opacity: 0;
-  background-color: white;
-  border-radius: 50%;
-  cursor: pointer;
-  position: fixed;
-  right: 25px;
-  bottom: 40px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition:  500ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover {
-    background-color: blue;
-    .back__icon {
-      fill: yellow;
-    }
-  }
-}
+
 .back__icon {
   opacity: 0;
   transition:  500ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -177,6 +161,8 @@ a.active {
   color: white;
 }
 .pagination__list {
+  padding: 0 10px;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -185,51 +171,159 @@ a.active {
 .pagination__link {
   color: #000000;
   display: flex;
-  margin-right: 10px;
+  
   padding: 5px;
   border: 1px solid black;
   border-radius: 4px;
   background-color: rgb(214, 214, 214);
   
 }
-.filter {
-  max-width: 850px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+.pagination__item {
+  margin-right: 10px;
+  &:last-child {
+    margin-right: 0;
+  }
 }
-.button {
-  border-radius: 4px;
-  padding: 5px;
-  border: 1px solid transparent;
-  background-color: #2f2f37;
-  color: white;
+
+.speack {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
   cursor: pointer;
   position: relative;
-  margin-right: 10px;
-  margin-top: 10px;
-}
-.button:active {
+  &__icon {
+    width: 15px;
+    height: 15px;
+  }
+  &:active {
   bottom: -1px;
-  background-color: #474757;
+  background-color: #c6c6c9;
+  }
 }
-.filter-active {
-  background-color: #ff6b0a;
-}
-.first__button {
-  position: absolute;
-  top: 90px;
-  left: 295px;
-}
-.open-filter {
-  position: absolute;
-  top: 25px;
-  left: 40px;
-}
-.filter {
+.select {
   opacity: 1;
-transition: 250ms;
+  height: 35px;
+  margin-top: 20px;
+  margin-right: 50px;
+ 
+  width: 200px;
+  padding-left:  15px;
+  padding-bottom: 3px;
+  background-color:whitesmoke;
+  font-weight: 600;
+  font-size: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: 250ms;
 }
-.filterHidden {
+.openCategory {
+  margin-left: 10px;
+  margin-top: 20px;
+  height: 35px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 15px;
+ 
+  background-color: whitesmoke;
+  cursor: pointer;
+  &:active {
+    background-color: rgb(223, 222, 222);
+    padding: 4px 14px;
+  }
+}
+.hideCategory {
   opacity: 0;
+}
+.pagination-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+ margin-bottom: 30px;
+}
+.left {
+  margin-right: 30px;
+}
+.right {
+  margin-left: 30px;
+}
+.pghd {
+  display: none;
+}
+
+.history {
+ display: flex;
+ justify-content: space-between;
+  width: 300px;
+  background-color: rgb(128, 128, 128, 0.7);
+  position: absolute;
+  top: 54.5px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.hide {
+  display: none;
+}
+.container--head {
+  z-index: 2;
+  background-color: #2f2f37;
+  display: flex;
+  justify-content: space-between;
+}
+.btnCategoty {
+  width: 190px;
+  display: flex;
+  justify-content: center;
+}
+.list {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  max-width: 150px;
+}
+
+.clear__icon {
+  width: 20px;
+  height: 20px;
+}
+.clear {
+  display: flex;
+  background-color: transparent;
+  border: 0;
+  margin-bottom: 5px;
+}
+.item {
+  cursor: pointer;
+  margin-bottom: 5px;
+  &:hover {
+    color: blue;
+  }
+  
+}
+.numberOfPicture {
+  transition: 250ms;
+  height: 35px;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.contbtn {
+  display: flex;
+  flex-direction: column-reverse;
 }
