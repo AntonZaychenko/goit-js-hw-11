@@ -81,4 +81,4 @@ showImages()
   
   
 // }
-console.log('push')
+console.log('push2')
