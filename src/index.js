@@ -50,19 +50,14 @@ function onClickLoadMore() {
 }
 
 function onClickPaginationLink(e) {
- 
-  e.preventDefault();
+e.preventDefault()
+if(e.target.nodeName !== 'A') {
+  return
+}
+  let numberPage = e.target.textContent;
+  showImages(numberPage) 
   clearGallery();
-  showImages();
-
-  if (e.target.nodeName !== 'A') {
-    return
-  } else {
-    const total = paginationList.querySelectorAll('a')
-    const result = [...total].map(a => a.classList.remove('active'))
-    e.target.classList.add('active')
-    
-  }
+ 
 }
 
 
@@ -83,13 +78,14 @@ clearGallery();
 }
 
 const mySelect = document.querySelector('.numberOfPicture')
-mySelect.addEventListener('change', fun1)
-function fun1() {
-console.log(1)
+mySelect.addEventListener('change', onChangePerPage)
+function onChangePerPage() {
+if(inputEl.value === '') {
+  return
+}
 clearGallery()
 showImages()
 }
-
 
 
  
