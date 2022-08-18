@@ -221,7 +221,7 @@ a.active {
   border-radius: 4px;
   transition: 250ms;
 }
-.openCategory {
+.open--category {
   margin-left: 10px;
   margin-top: 20px;
   height: 35px;
@@ -238,7 +238,7 @@ a.active {
     padding: 4px 14px;
   }
 }
-.hideCategory {
+.hide--category {
   opacity: 0;
 }
 .pagination-btn {
@@ -286,7 +286,7 @@ a.active {
   display: flex;
   justify-content: space-between;
 }
-.btnCategoty {
+.btn--categoty {
   width: 190px;
   display: flex;
   justify-content: center;
@@ -323,7 +323,7 @@ a.active {
   margin-top: 20px;
   margin-left: 20px;
 }
-.contbtn {
+.cont--btn {
   display: flex;
   flex-direction: column-reverse;
 }

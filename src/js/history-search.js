@@ -1,16 +1,16 @@
 export {history_saerch}
 
-import { showImages } from "./showImages";
+import { showImages } from "./show-Images";
 import { clearGallery } from "..";
 const myInput = document.querySelector(".form__input");
 const btnClear = document.querySelector(".clear");
 const historyEl = document.querySelector(".history");
 const myForm = document.querySelector("form");
-const numberOfPicture = document.querySelector('.numberOfPicture')
+const numberOfPicture = document.querySelector('.number--of--picture')
 const list = document.querySelector("#results");
 let query = "";
 
-myForm.addEventListener("submit", onSubmitForm);
+// myForm.addEventListener("submit", onSubmitForm);
 myInput.addEventListener("click", onClickInput);
 btnClear.addEventListener("click", onClearLocaleStorage);
 list.addEventListener('click', onClick)
@@ -30,17 +30,6 @@ function onClick(e) {
 
   clearGallery()
   showImages()
-}
-
-function onSubmitForm(e) {
-  e.preventDefault();
-
-  query = myInput.value;
-
-  if (query === "") {
-    return;
-  }
-  renderFirstList()
 }
 
 function onClickInput() {

@@ -1,9 +1,9 @@
 
 
-import { showImages } from './js/showImages';
+import { showImages } from './js/show-Images';
 import { renderPagination } from './js/render-pagination';
-import { speackRecognation } from './js/speackRocognation';
-import { history_saerch } from './js/history_search';
+import { speackRecognation } from './js/speack-recognation';
+import { history_saerch } from './js/history-search';
 import { notifications } from './js/notifications';
 export {clearGallery}
 
@@ -41,7 +41,7 @@ function onSubmitForm(e) {
   }
 
   showImages(page, query)
-
+  renderFirstList()
 }
 
 function onClickLoadMore() {
@@ -77,7 +77,7 @@ showImages(page)
 clearGallery();
 }
 
-const mySelect = document.querySelector('.numberOfPicture')
+const mySelect = document.querySelector('.number--of--picture')
 mySelect.addEventListener('change', onChangePerPage)
 function onChangePerPage() {
 if(inputEl.value === '') {

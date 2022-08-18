@@ -11,7 +11,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const inputEl = document.querySelector('input');
 const loadMore = document.querySelector('.btn-load-more')
 const btnRight = document.querySelector('.right')
-const numberOfPicture = document.querySelector('.numberOfPicture')
+const numberOfPicture = document.querySelector('.number--of--picture')
 const myPagination = document.querySelector('.pagination')
 
 let perPage = numberOfPicture.value;

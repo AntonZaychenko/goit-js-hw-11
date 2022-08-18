@@ -3,8 +3,8 @@ export { fetchImages };
 import axios from 'axios';
 
 const mySelect = document.querySelector('.select')
-const numberOfPicture = document.querySelector('.numberOfPicture')
-const myCategory = document.querySelector('.openCategory')
+const numberOfPicture = document.querySelector('.number--of--picture')
+const myCategory = document.querySelector('.open--category')
 
 myCategory.addEventListener('click', onopenCategory)
 
@@ -22,10 +22,10 @@ async function fetchImages(query, page, perPage ) {
 
 function onopenCategory() {
 
-  mySelect.classList.toggle('hideCategory')
-  numberOfPicture.classList.toggle('hideCategory')
+  mySelect.classList.toggle('hide--category')
+  numberOfPicture.classList.toggle('hide--category')
   
-  if(mySelect.classList.contains('hideCategory')) {
+  if(mySelect.classList.contains('hide--category')) {
     myCategory.textContent = 'Show-Category/Amount Picture'
   } else {
     myCategory.textContent = 'Hide-Category/Amount Picture'

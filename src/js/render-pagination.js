@@ -2,7 +2,7 @@ export { renderPagination };
 
 const paginationList = document.querySelector('.pagination__list');
 const btnLeft = document.querySelector('.left')
-const numberOfPicture = document.querySelector('.numberOfPicture')
+const numberOfPicture = document.querySelector('.number--of--picture')
 
 function renderPagination(totalHits, page) {
     let countPage = Math.round(totalHits / numberOfPicture.value);
