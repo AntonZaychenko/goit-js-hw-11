@@ -320,19 +320,19 @@ a.active {
   background-color: #fbfbfb;
   cursor: pointer;
   margin-bottom: 5px;
-  &:hover {
-    color: blue;
-    background-color:rgb(219, 217, 217);
-    font-size: 22px;
-  }
-  &:nth-child(2n) {
-    border-radius: 0 5px;
 }
-&:first-child {
+.item:nth-child(2n) {
+  border-radius: 0 5px;
+}
+.item:first-child {
   margin-top: 10px;
 }
+.item:hover {
+  color: blue;
+  background-color:rgb(219, 217, 217);
+  font-size: 22px;
 }
-.numberOfPicture {
+.number--of--picture {
   transition: 250ms;
   height: 35px;
   border-radius: 4px;
