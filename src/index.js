@@ -93,4 +93,4 @@ showImages()
 
 
  
-console.log('сработало 2')
+console.log('сработало 3')
