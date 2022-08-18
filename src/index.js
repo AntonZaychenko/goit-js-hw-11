@@ -4,7 +4,7 @@ import { renderGallery } from './js/render-gallery';
 import Notiflix, { Notify } from 'notiflix';
 import { showImages } from './js/showImages';
 import { renderPagination } from './js/render-pagination';
-import SimpleLightbox from 'simplelightbox';
+
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { speackRecognation } from './js/speackRocognation';
 import { history_saerch } from './js/history_search';
@@ -45,8 +45,8 @@ function onSubmitForm(e) {
     return;
   }
 
- showImages(page, query)
- 
+  showImages(page, query)
+
 }
 
 function onClickLoadMore() {
@@ -55,21 +55,21 @@ function onClickLoadMore() {
 }
 
 function onClickPaginationLink(e) {
+ 
   e.preventDefault();
   clearGallery();
-  makeActive(e);
   let numberPage = e.target.textContent;
-  showImages(numberPage);
+  showImages();
+  if (e.target.nodeName !== 'A') {
+    return
+  } else {
+    const total = paginationList.querySelectorAll('a')
+    const result = [...total].map(a => a.classList.remove('active'))
+    e.target.classList.add('active')
+    console.log(result)
+  }
 }
 
-function makeActive(e) {
-  if (e.target.nodeName !== 'A') {
-    return;
-  }
-  const total = paginationList.querySelectorAll('a');
-  const result = [...total].map(a => a.classList.remove('active'));
-  e.target.classList.add('active');
-}
 
 function clearGallery() {
   myGallery.innerHTML = '';
@@ -77,7 +77,7 @@ function clearGallery() {
 
 function onClickLeft() {
 page -= 1
-showImages(page)
+showImages(page) 
 clearGallery();
 }
 

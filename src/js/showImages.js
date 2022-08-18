@@ -6,6 +6,7 @@ import { renderGallery } from './render-gallery';
 import { renderPagination } from './render-pagination';
 import { clearGallery } from '..';
 import { notifications } from './notifications';
+import SimpleLightbox from 'simplelightbox';
 
 const inputEl = document.querySelector('input');
 const loadMore = document.querySelector('.btn-load-more')
@@ -41,7 +42,7 @@ function showImages(page) {
     renderPagination(data.totalHits, page, perPage);
     return data
   }).then((data) => {
-    notifications(data)
+    return notifications(data)
   })
   
 }
