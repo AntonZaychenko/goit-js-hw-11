@@ -4,20 +4,17 @@ export { showImages };
 import { fetchImages } from './fetch-images';
 import { renderGallery } from './render-gallery';
 import { renderPagination } from './render-pagination';
-import { clearGallery } from '..';
 import { notifications } from './notifications';
 import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const inputEl = document.querySelector('input');
 const loadMore = document.querySelector('.btn-load-more')
 const btnRight = document.querySelector('.right')
 const numberOfPicture = document.querySelector('.numberOfPicture')
-
-let query = inputEl.value.trim();
-let page = 1;
-let perPage = numberOfPicture.value;
-
 const myPagination = document.querySelector('.pagination')
+
+let perPage = numberOfPicture.value;
 
 function showImages(page) {
   let query = inputEl.value.trim();

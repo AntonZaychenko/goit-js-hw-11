@@ -1,11 +1,7 @@
 
-import { fetchImages } from './js/fetch-images';
-import { renderGallery } from './js/render-gallery';
-import Notiflix, { Notify } from 'notiflix';
+
 import { showImages } from './js/showImages';
 import { renderPagination } from './js/render-pagination';
-
-import 'simplelightbox/dist/simple-lightbox.min.css';
 import { speackRecognation } from './js/speackRocognation';
 import { history_saerch } from './js/history_search';
 import { notifications } from './js/notifications';
@@ -20,7 +16,7 @@ const myForm = document.querySelector('.search-form');
 const inputEl = document.querySelector('input');
 const myGallery = document.querySelector('.gallery');
 const loadMore = document.querySelector('.btn-load-more');
-const numberOfPicture = document.querySelector('.numberOfPicture')
+
 
 myForm.addEventListener('submit', onSubmitForm);
 
@@ -32,8 +28,7 @@ btnRight.addEventListener('click', onClickRight)
 
 let query = '';
 let page = 1;
-let perPage = numberOfPicture.value;
-let simplelightbox;
+
 
 function onSubmitForm(e) {
   e.preventDefault();
@@ -58,15 +53,15 @@ function onClickPaginationLink(e) {
  
   e.preventDefault();
   clearGallery();
-  let numberPage = e.target.textContent;
   showImages();
+
   if (e.target.nodeName !== 'A') {
     return
   } else {
     const total = paginationList.querySelectorAll('a')
     const result = [...total].map(a => a.classList.remove('active'))
     e.target.classList.add('active')
-    console.log(result)
+    
   }
 }
 
@@ -98,3 +93,4 @@ showImages()
 
 
  
+console.log('сработало')

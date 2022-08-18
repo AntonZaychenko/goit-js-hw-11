@@ -2,6 +2,7 @@ export {speackRecognation}
 
 const inputEl = document.querySelector('input');
 const btnStart = document.querySelector('.speack')
+
 btnStart.addEventListener('click', onStartSpeack)
 
 var recognizer = new webkitSpeechRecognition()

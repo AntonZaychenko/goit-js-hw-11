@@ -4,7 +4,7 @@ const paginationList = document.querySelector('.pagination__list');
 const btnLeft = document.querySelector('.left')
 const numberOfPicture = document.querySelector('.numberOfPicture')
 
-function renderPagination(totalHits, page, perPage) {
+function renderPagination(totalHits, page) {
     let countPage = Math.round(totalHits / numberOfPicture.value);
     let html = '';
     for (let i = 1; i <= countPage; i += 1) {
@@ -22,7 +22,7 @@ function renderPagination(totalHits, page, perPage) {
   paginationList.innerHTML = html;
 }
 
-function disabledPage(page, countPage) {
+function disabledPage(page) {
   btnLeft.disabled = true
   if(page > 1) {
     btnLeft.disabled = false
