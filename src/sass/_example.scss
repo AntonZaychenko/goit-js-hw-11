@@ -328,6 +328,9 @@ a.active {
   &:nth-child(2n) {
     border-radius: 0 5px;
 }
+&:first-child {
+  margin-top: 10px;
+}
 }
 .numberOfPicture {
   transition: 250ms;
