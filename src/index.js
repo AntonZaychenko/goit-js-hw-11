@@ -5,6 +5,7 @@ import { renderPagination } from './js/render-pagination';
 import { speackRecognation } from './js/speack-recognation';
 import { history_saerch } from './js/history-search';
 import { notifications } from './js/notifications';
+
 export {clearGallery}
 
 
@@ -12,37 +13,18 @@ export {clearGallery}
 const btnLeft = document.querySelector('.left')
 const btnRight = document.querySelector('.right')
 const paginationList = document.querySelector('.pagination__list');
-const myForm = document.querySelector('.search-form');
 const inputEl = document.querySelector('input');
 const myGallery = document.querySelector('.gallery');
 const loadMore = document.querySelector('.btn-load-more');
 
-
-myForm.addEventListener('submit', onSubmitForm);
-
 loadMore.addEventListener('click', onClickLoadMore);
-
 paginationList.addEventListener('click', onClickPaginationLink);
 btnLeft.addEventListener('click', onClickLeft)
 btnRight.addEventListener('click', onClickRight)
 
-let query = '';
+
 let page = 1;
 
-
-function onSubmitForm(e) {
-  e.preventDefault();
-  query = inputEl.value.trim();
-  clearGallery();
-  if (query === '') {
-    clearGallery();
-    
-    return;
-  }
-
-  showImages(page, query)
-  renderFirstList()
-}
 
 function onClickLoadMore() {
   page += 1;
@@ -56,10 +38,8 @@ if(e.target.nodeName !== 'A') {
 }
   let numberPage = e.target.textContent;
   showImages(numberPage) 
-  clearGallery();
- 
+  clearGallery(); 
 }
-
 
 function clearGallery() {
   myGallery.innerHTML = '';
@@ -87,6 +67,17 @@ clearGallery()
 showImages()
 }
 
+// function onSubmitForm(e) {
+//   e.preventDefault();
+//   query = inputEl.value.trim();
+//   clearGallery();
+//   if (query === '') {
+//     clearGallery();
+    
+//     return;
+//   }
 
- 
-console.log('сработало 3')
+//   showImages(page, query)
+  
+  
+// }

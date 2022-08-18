@@ -1,5 +1,6 @@
 export {history_saerch}
 
+
 import { showImages } from "./show-Images";
 import { clearGallery } from "..";
 const myInput = document.querySelector(".form__input");
@@ -10,7 +11,7 @@ const numberOfPicture = document.querySelector('.number--of--picture')
 const list = document.querySelector("#results");
 let query = "";
 
-// myForm.addEventListener("submit", onSubmitForm);
+myForm.addEventListener("submit", onSubmitForm);
 myInput.addEventListener("click", onClickInput);
 btnClear.addEventListener("click", onClearLocaleStorage);
 list.addEventListener('click', onClick)
@@ -32,6 +33,18 @@ function onClick(e) {
   showImages()
 }
 
+function onSubmitForm(e) {
+  e.preventDefault();
+
+  query = myInput.value.trim();
+  clearGallery();
+  if (query === "") {
+    return;
+  }
+  showImages()
+  renderList()
+}
+
 function onClickInput() {
   historyEl.classList.toggle("hide");
   renderList()
@@ -50,22 +63,23 @@ function saveToLocaleStorage(query) {
 
   return uniqueGenres;
 }
-function renderFirstList() {
-    const historySearch = saveToLocaleStorage(query);
-    const markup = (results) => {
-      const itemAdd = document.createElement("li");
+// function renderFirstList() {
+//     const historySearch = saveToLocaleStorage(query);
+//     // const markup = (results) => {
+//     //   const itemAdd = document.createElement("li");
   
-      itemAdd.classList.add("item");
-      itemAdd.innerHTML = results;
-      list.innerHTML = " ";
-      return itemAdd;
-    };
+//     //   itemAdd.classList.add("item");
+//     //   itemAdd.innerHTML = results;
+//     //   list.innerHTML = " ";
+//     //   return itemAdd;
+//     // };
   
-    if (list) {
-      list.append(...historySearch.map(markup));
-    }
-}
+//     // if (list) {
+//     //   list.append(...historySearch.map(markup));
+//     // }
+// }
 function renderList() {
+  saveToLocaleStorage(query);
     const historySearchFromLS = JSON.parse(localStorage.getItem("value"));
     if (historySearchFromLS === null) {
       return;
