@@ -15,7 +15,7 @@ const numberOfPicture = document.querySelector('.numberOfPicture')
 const myPagination = document.querySelector('.pagination')
 
 let perPage = numberOfPicture.value;
-
+let simplelightbox
 function showImages(page) {
   let query = inputEl.value.trim();
   return fetchImages(query, page, perPage).then(({ data }) => {
