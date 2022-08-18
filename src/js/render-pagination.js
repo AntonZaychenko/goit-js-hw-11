@@ -9,9 +9,6 @@ function renderPagination(totalHits, page) {
     let html = '';
     for (let i = 1; i <= countPage; i += 1) {
       
-      if(i === countPage) {
-        lastClass = 'last'
-      }
       html += `
         <li class ="pagination__item">
           <a href="" class="pagination__link ">${i}</a>
