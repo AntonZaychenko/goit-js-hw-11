@@ -24,7 +24,7 @@ function showImages(page) {
     myPagination.classList.add('pghd')
     return
   }
- console.log(1)
+ 
   return fetchImages(query, page, numberOfPicture.value).then(({ data }) => {
    
     if(data.totalHits === 0) {

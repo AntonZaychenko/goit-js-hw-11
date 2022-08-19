@@ -18,7 +18,7 @@ function notifications(data, page, totalHits) {
             'Sorry, there are no images matching your search query. Please try again.'
           )
       } else {
-        Notify.success(`Hooray! We found ${numberOfPicture.value} images.`)
+        Notify.success(`Hooray! We found ${data.totalHits} images.`)
       }
       
 }

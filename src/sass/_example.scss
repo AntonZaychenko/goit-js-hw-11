@@ -359,3 +359,15 @@ a.active {
 .tester_item {
   display: block;
 }
+.togle {
+  background-color: whitesmoke;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  align-items: center;
+  font-weight: bold;
+  cursor: default;
+}

@@ -4,10 +4,11 @@ const paginationList = document.querySelector('.pagination__list');
 const btnLeft = document.querySelector('.left')
 const numberOfPicture = document.querySelector('.number--of--picture')
 
+
 function renderPagination(totalHits, page) {
+
   let countPage = Math.round(totalHits / numberOfPicture.value);
-  const myLiNone = document.querySelector('#testers')
-   
+  
     let html = '';
     for (let i = 1; i <= countPage; i += 1) {
       
@@ -17,18 +18,26 @@ function renderPagination(totalHits, page) {
         </li>`;
         
   }
-  disabledPage(page, countPage)
-  let result = countPage - 3
-  paginationList.innerHTML = html;
-  const myItemEl = document.querySelectorAll('.pagination__item')
- 
-  // if(countPage > 5) {
-  //   for(let i = 3; i < result; i++) {
-  //    myItemEl[i].classList.add('none')
-  //   }
-   
-  // }
 
+  disabledPage(page, countPage)
+
+  paginationList.innerHTML = html;
+
+  let result = countPage - 3
+
+  const myItemEl = document.querySelectorAll('.pagination__item')
+  const myItemLink = document.querySelectorAll('.pagination__link')
+  
+  
+  if(countPage > 7) {
+    for(let i = 3; i < result; i++) {
+      myItemEl[i].classList.add('none')
+      myItemEl[3].classList.remove('none')
+      myItemEl[3].classList.add('togle')
+    }
+    myItemEl[3].textContent = '. . .'
+  }
+  
   
 }
 
