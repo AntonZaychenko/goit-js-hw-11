@@ -2,7 +2,7 @@
 
 import { showImages } from './js/show-Images';
 import { renderPagination } from './js/render-pagination';
-import { speackRecognation } from './js/speack-recognation';
+import { speackRecognation } from './js/speackRocognation';
 import { history_saerch } from './js/history-search';
 import { notifications } from './js/notifications';
 
@@ -36,6 +36,7 @@ e.preventDefault()
 if(e.target.nodeName !== 'A') {
   return
 }
+e.target.classList.add('black')
   let numberPage = e.target.textContent;
   showImages(numberPage) 
   clearGallery(); 
@@ -67,18 +68,5 @@ clearGallery()
 showImages()
 }
 
-// function onSubmitForm(e) {
-//   e.preventDefault();
-//   query = inputEl.value.trim();
-//   clearGallery();
-//   if (query === '') {
-//     clearGallery();
-    
-//     return;
-//   }
 
-//   showImages(page, query)
-  
-  
-// }
 console.log('push2')

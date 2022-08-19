@@ -84,18 +84,4 @@ function renderList() {
 
 }
 
-// function renderFirstList() {
-//     const historySearch = saveToLocaleStorage(query);
-//     // const markup = (results) => {
-//     //   const itemAdd = document.createElement("li");
-  
-//     //   itemAdd.classList.add("item");
-//     //   itemAdd.innerHTML = results;
-//     //   list.innerHTML = " ";
-//     //   return itemAdd;
-//     // };
-  
-//     // if (list) {
-//     //   list.append(...historySearch.map(markup));
-//     // }
-// }
+

@@ -7,7 +7,7 @@ import { renderPagination } from './render-pagination';
 import { notifications } from './notifications';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-
+import Notiflix, { Notify } from 'notiflix';
 const inputEl = document.querySelector('input');
 const loadMore = document.querySelector('.btn-load-more')
 const btnRight = document.querySelector('.right')
@@ -21,22 +21,24 @@ function showImages(page) {
   return fetchImages(query, page, perPage).then(({ data }) => {
    
     if(data.totalHits === 0) {
-      // Notify.failure('Sorry, there are no images matching your search query. Please try again.')
+      
     } else {
       renderGallery(data.hits);
       simplelightbox = new SimpleLightbox('.gallery a').refresh();
       loadMore.classList.remove('is-hidden');
       myPagination.classList.remove('pghd')
       btnRight.disabled = false
+      btnRight.classList.remove('disabled')
     } 
      if(page > data.totalHits / perPage) {
       loadMore.classList.add('is-hidden');
       btnRight.disabled = true
-    
+      btnRight.classList.add('disabled')
     } else if(page > 1) {
       onPageScrolling();
     }
     renderPagination(data.totalHits, page, perPage);
+    
     return data
   }).then((data) => {
     return notifications(data)
