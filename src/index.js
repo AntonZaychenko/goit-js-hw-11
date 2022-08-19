@@ -28,6 +28,7 @@ let page = 1;
 
 function onClickLoadMore() {
   page += 1;
+  
   showImages(page);
 }
 

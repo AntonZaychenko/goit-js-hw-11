@@ -9,6 +9,7 @@ const historyEl = document.querySelector(".history");
 const myForm = document.querySelector("form");
 const numberOfPicture = document.querySelector('.number--of--picture')
 const list = document.querySelector("#results");
+const loadMore = document.querySelector('.btn-load-more')
 let query = "";
 
 myForm.addEventListener("submit", onSubmitForm);
@@ -35,16 +36,15 @@ function onClick(e) {
 
 function onSubmitForm(e) {
   e.preventDefault();
-
+ 
   query = myInput.value.trim();
   clearGallery();
-  if (query === "") {
-    return;
-  }
+ 
   showImages()
   renderList()
+  
 }
-
+console.log(1)
 function onClickInput() {
   historyEl.classList.toggle("hide");
   renderList()

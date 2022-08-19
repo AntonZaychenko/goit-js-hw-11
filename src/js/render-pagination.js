@@ -20,7 +20,7 @@ function renderPagination(totalHits, page) {
   paginationList.innerHTML = html;
   const myItemEl = document.querySelectorAll('.pagination__item')
   const myLiNone = document.querySelector('#testers')
-  console.log(myLiNone)
+ 
   // if(countPage > 5) {
   //   for(let i = 3; i < result; i++) {
   //    myItemEl[i].classList.add('none')

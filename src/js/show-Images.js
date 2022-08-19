@@ -17,8 +17,15 @@ const myPagination = document.querySelector('.pagination')
 let perPage = numberOfPicture.value;
 let simplelightbox
 function showImages(page) {
+  
   let query = inputEl.value.trim();
-  return fetchImages(query, page, perPage).then(({ data }) => {
+  if(query === '') {
+    loadMore.classList.add('is-hidden');
+    myPagination.classList.add('pghd')
+    return
+  }
+ console.log(1)
+  return fetchImages(query, page, numberOfPicture.value).then(({ data }) => {
    
     if(data.totalHits === 0) {
       
@@ -30,10 +37,14 @@ function showImages(page) {
       btnRight.disabled = false
       btnRight.classList.remove('disabled')
     } 
-     if(page > data.totalHits / perPage) {
+     if(page > data.totalHits / numberOfPicture.value) {
       loadMore.classList.add('is-hidden');
       btnRight.disabled = true
       btnRight.classList.add('disabled')
+        Notify.info(
+            'Sorry, there are no images matching your search query. Please try again.'
+          )
+      
     } else if(page > 1) {
       onPageScrolling();
     }
