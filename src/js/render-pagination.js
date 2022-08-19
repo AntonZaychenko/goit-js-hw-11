@@ -5,7 +5,9 @@ const btnLeft = document.querySelector('.left')
 const numberOfPicture = document.querySelector('.number--of--picture')
 
 function renderPagination(totalHits, page) {
-    let countPage = Math.round(totalHits / numberOfPicture.value);
+  let countPage = Math.round(totalHits / numberOfPicture.value);
+  const myLiNone = document.querySelector('#testers')
+   
     let html = '';
     for (let i = 1; i <= countPage; i += 1) {
       
@@ -19,13 +21,12 @@ function renderPagination(totalHits, page) {
   let result = countPage - 3
   paginationList.innerHTML = html;
   const myItemEl = document.querySelectorAll('.pagination__item')
-  const myLiNone = document.querySelector('#testers')
  
   // if(countPage > 5) {
   //   for(let i = 3; i < result; i++) {
   //    myItemEl[i].classList.add('none')
   //   }
-  //   myLiNone.classList.remove('none')
+   
   // }
 
   
