@@ -10,6 +10,8 @@ const myForm = document.querySelector("form");
 const numberOfPicture = document.querySelector('.number--of--picture')
 const list = document.querySelector("#results");
 const loadMore = document.querySelector('.btn-load-more')
+const myPagination = document.querySelector('.pagination')
+
 let query = "";
 
 myForm.addEventListener("submit", onSubmitForm);
@@ -42,7 +44,8 @@ function onSubmitForm(e) {
  
   showImages()
   renderList()
-  
+  loadMore.classList.add('is-hidden')
+  myPagination.classList.add('pghd')
 }
 console.log(1)
 function onClickInput() {
